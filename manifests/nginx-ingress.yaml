@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  labels:
+    name: nginx-ingress
+spec:
+  rules:
+  - host: nginx-demo.com
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          # Defines which Service does this get forwarded to
+          # when we call nginx-demo.com
+          backend:
+            service:
+              name: nginx-service
+              port:
+                number: 8082
+                

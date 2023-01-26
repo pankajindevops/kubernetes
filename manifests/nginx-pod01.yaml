@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+
+# metadata is information about the object
+# eg. resource name, labels
+metadata:
+  name: nginx-pod04
+  labels:
+    team: integration
+    product: todo
+    version: "1.0"
+    release-date: 7thOctober2022
+    team-size: "15"
+    project-location: london
+spec:
+# Pod can have Multiple Containers
+# Comprises - Container name, Image used to create the Container
+# containerPort = Port inside the Container that the Application Runs on
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
